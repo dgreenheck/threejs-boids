@@ -3,8 +3,8 @@ import * as THREE from 'three';
 export class FPSCamera {
   camera: THREE.PerspectiveCamera;
 
-  private elevation = 0;
-  private direction = 2.5;
+  private elevation = -0.3;
+  private direction = 0;
   private position: THREE.Vector3;
 
   private keys: Record<string, boolean> = {};
@@ -18,7 +18,7 @@ export class FPSCamera {
 
   constructor(aspect: number) {
     this.camera = new THREE.PerspectiveCamera(45, aspect, 0.1, 10000);
-    this.position = new THREE.Vector3(35, 70, -35);
+    this.position = new THREE.Vector3(500, 700, 1200);
     this.camera.position.copy(this.position);
 
     this.setupEventListeners();
@@ -34,7 +34,7 @@ export class FPSCamera {
     });
 
     window.addEventListener('mousedown', (e) => {
-      if (e.button === 0) {
+      if (e.button === 0 && !(e.target as HTMLElement).closest('.lil-gui')) {
         this.isDragging = true;
         this.prevMouseX = e.clientX;
         this.prevMouseY = e.clientY;

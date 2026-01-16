@@ -40,12 +40,12 @@ export class Swarm {
 
     // Default parameters matching original XNA values
     this.params = {
-      preyRows: 200,
-      preyCols: 200,
+      preyRows: 100,
+      preyCols: 100,
       preySpacing: 8,
       preyAcceleration: 0.75,
       preyMaxSpeed: 70,
-      preySize: 1,
+      preySize: 1.5,
       predCount: 2,
       predAcceleration: 3,
       predMaxSpeed: 300,
